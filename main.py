@@ -33,14 +33,18 @@ def main():
 
         elif userInput == "3":
             count, notes = countnotes.countNotes()
-            notebook = open(filename, "wb")
             place = int(input("Which of them will be changed?: "))
             place -= 1
-            print(notes[place])
+            try:
+                print(notes[place])
+            except IndexError:
+                print("Invalid index")
+                continue
             noteEdit = input("Give the new note: ")
             noteEdit = noteEdit + ":::" + strftime("%X %x")
             notes[place] = noteEdit
             i = int(0)
+            notebook = open(filename, "wb")
             while i < count:
                 pickle.dump(notes[i], notebook)
                 i += 1
