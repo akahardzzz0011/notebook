@@ -67,7 +67,7 @@ def main():
                 i += 1
             notebook.close()
         elif userInput == "5":
-            print("Notebook shutting down, thank you.")
+            print("Notebook closed.")
             notebook.close()
             break
 
